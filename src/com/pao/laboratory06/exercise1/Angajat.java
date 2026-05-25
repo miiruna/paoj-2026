@@ -1,8 +1,9 @@
 package com.pao.laboratory06.exercise1;
 
+import java.util.Locale;
 import java.util.Scanner;
 
-public class Angajat {
+public class Angajat implements Comparable<Angajat> {
     private String nume;
     private double salariu;
 
@@ -18,8 +19,13 @@ public class Angajat {
     }
 
     @Override
+    public int compareTo(Angajat other) {
+        return Double.compare(this.salariu, other.salariu);
+    }
+
+    @Override
     public String toString() {
-        return String.format("%s %.1f", nume, salariu);
+        return String.format(Locale.US, "%s %.1f", nume, salariu);
     }
 
     public String getNume() {
